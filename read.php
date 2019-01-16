@@ -15,25 +15,16 @@
 
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "reunion_island";
-
-$connection = new mysqli($servername, $username, $password);
-
-if ($connection->connect_error) {
-    die("connection failed : " . $connection->connect_error);
-} else {
-    $connection->select_db($dbname);
-}
+include 'connection.php';
 
 
 $sql = "SELECT * FROM hiking WHERE 1";
 $result = $connection->query($sql);
-echo "<table><tr><th>ID</th><th>Name</th><th>Difficulty</th><th>Distance</th><th>Duration</th><th>Height Difference</th></tr>";
+echo "<table><tr><th>ID</th><th>Name</th><th>Difficulty</th><th>Distance</th><th>Duration</th><th>Height Difference</th><th>Available</th></tr>";
 while ($row = $result->fetch_assoc()) {
-    echo "<tr><td>" . $row['id'] . "</td> <td> <a href='update.php?id=" . $row['id'] . "'>" . $row['name'] . "</a></td> <td>" . $row['difficulty'] . "</td> <td>" . $row['distance'] . " km </td> <td>" . $row['duration'] . "</td> <td>" . $row['height_difference'] . " m</td></tr>";
+    echo "<tr><td>" . $row['id'] . "</td> <td> <a href='update.php?id=" . $row['id'] . "'>" . $row['name'] . "</a></td> <td>" . $row['difficulty'] . "</td> <td>" . $row['distance'] . " km </td> <td>" . $row['duration'] . "</td> <td>" . $row['height_difference'] . " m</td>
+<td>" . $row['available'] . "</td>
+<td><a href='delete.php?id=" . $row['id'] . "'>Supprimer</a> </td></tr>";
 }
 echo "</table>";
 
