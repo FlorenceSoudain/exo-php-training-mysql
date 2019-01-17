@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+
+//cette condition empêche les personnes non connecté d'ajouter des données
+if ($_SESSION['id'] !== NULL){
+
+    echo "Bonjour " . $_SESSION['username'];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,3 +57,7 @@
 </html>
 <?php
 
+}
+else {
+    echo "Vous n'étes pas connecté. <a href='login.php'>Vous connecter ?</a>";
+}

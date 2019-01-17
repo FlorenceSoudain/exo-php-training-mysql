@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if($_SESSION['username'] !== NULL){
+    echo "Bonjour " . $_SESSION['username'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +16,11 @@
 </head>
 <body>
 <h1>Liste des randonnées</h1>
+<nav><a class="nav" href="login.php">Se connecter</a> <a class="nav" href="create.php">Ajouter</a> <a class="nav" href="logout.php">Se déconnecter</a></nav>
 <table>
     <!-- Afficher la liste des randonnées -->
 </table>
+
 </body>
 </html>
 

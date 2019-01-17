@@ -12,3 +12,23 @@ td, th
   border: 1px solid black;
   padding: 10px;
 }
+th {
+  background: indianred;
+  color: white;
+}
+body {
+  background: lavender;
+}
+.nav {
+  background: indianred;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+.nav:hover{
+  background: white;
+  color: indianred;
+  border-radius: 10px;
+  padding: 10px;
+}

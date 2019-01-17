@@ -6,9 +6,10 @@
  * Time: 09:53
  */
 
+session_start();
 include 'connection.php';
 
-
+if($_SESSION['id'] !== NULL){
 //récupération de données avec filtre
 $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
 $difficulty = filter_var($_POST['difficulty'], FILTER_SANITIZE_STRING);
@@ -24,3 +25,6 @@ $stmt -> execute();
 echo "La randonnée a été ajoutée avec succès.";
 $stmt -> close();
 
+} else {
+    echo "Vous n'étes pas connecté";
+}

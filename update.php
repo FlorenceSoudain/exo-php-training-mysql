@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+
+echo "Bonjour " . $_SESSION['username'];
+
 include 'connection.php';
 
 $identifiant = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
